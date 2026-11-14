@@ -1,0 +1,52 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+
+    // 1. Users collection: Users can only write their own profile
+    match /users/{userId} {
+      allow read: if isAuthenticated();
+      allow create: if isAuthenticated() && request.auth.uid == userId;
+      allow update: if isOwner(userId) && request.resource.data.uid == userId;
+      allow delete: if false; // Preserved for audit
+    }
+
+    // 2. Pledges collection: Users track their own 5 pledges
+    match /pledges/{pledgeId} {
+      allow read: if isAuthenticated();
+      allow create, update: if isAuthenticated() && request.resource.data.userId == request.auth.uid;
+      allow delete: if isAuthenticated() && resource.data.userId == request.auth.uid;
+    }
+
+    // 3. Hazard Reports: Authenticated residents can report and read feed
+    match /hazard_reports/{reportId} {
+      allow read: if isAuthenticated();
+      allow create: if isAuthenticated() 
+        && request.resource.data.userId == request.auth.uid;
+      allow update: if isAuthenticated() && (
+        resource.data.userId == request.auth.uid || 
+        request.resource.data.diff(resource.data).affectedKeys().hasOnly(['status', 'verifiedBy'])
+      );
+      allow delete: if false;
+    }
+
+    // 4. Seedling Nurseries: Verified directory (Read by all, edited by admins)
+    match /nurseries/{nurseryId} {
+      allow read: if isAuthenticated();
+      allow write: if false; // Curated server-side
+    }
+
+    // 5. Ward Leaderboard: Real-time aggregated stats
+    match /ward_leaderboard/{wardId} {
+      allow read: if isAuthenticated();
+      allow write: if isAuthenticated();
+    }
+  }
+}

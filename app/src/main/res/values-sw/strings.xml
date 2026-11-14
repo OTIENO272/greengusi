@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Green Gusii Hub</string>
+    <string name="hub_title">Kituo cha Mazingira ya Gusii</string>
+    <string name="pledge_1">Panda miti ya kiasili kando ya Mto Gucha na chemchemi (+100 pts)</string>
+    <string name="pledge_2">Ng\'oa mikaratusi ndani ya mita 30 kutoka chemchemi na uweke mianzi (+100 pts)</string>
+    <string name="pledge_3">Weka matuta na mbolea ya samadi kwenye mteremko wa chai/kahawa (+100 pts)</string>
+    <string name="pledge_4">Shiriki katika kusafisha maeneo oevu na mitaro ya maji (+100 pts)</string>
+    <string name="pledge_5">Panda parachichi ya Hass na Grevillea mipaka ya shamba (+100 pts)</string>
+</resources>

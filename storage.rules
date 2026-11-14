@@ -1,0 +1,26 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    // Hazard Evidence Photos: Max 6MB, Image MIME types only
+    match /hazard_evidence/{reportId}/{fileName} {
+      allow read: if isAuthenticated();
+      allow write: if isAuthenticated()
+        && request.resource.size < 6 * 1024 * 1024
+        && request.resource.contentType.matches('image/.*');
+    }
+
+    // Tree Planting Evidence Photos: Max 6MB
+    match /tree_evidence/{userId}/{fileName} {
+      allow read: if isAuthenticated();
+      allow write: if isAuthenticated() 
+        && request.auth.uid == userId
+        && request.resource.size < 6 * 1024 * 1024
+        && request.resource.contentType.matches('image/.*');
+    }
+  }
+}

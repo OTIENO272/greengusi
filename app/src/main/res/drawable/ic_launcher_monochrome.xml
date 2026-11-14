@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Monochrome Sun -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M54,34 A14,14 0 1,0 54,62 A14,14 0 1,0 54,34 Z" />
+
+    <!-- Monochrome Hills -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M22,76 C30,64 42,58 54,66 C42,66 32,70 22,76 Z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M86,76 C78,63 64,57 52,66 C64,66 74,70 86,76 Z" />
+
+    <!-- Central Sprout -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M54,67 C50,54 46,42 54,26 C62,42 58,54 54,67 Z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M54,65 C48,56 34,54 32,44 C31,35 42,34 47,40 C51,45 53,55 54,65 Z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M54,65 C60,56 74,54 76,44 C77,35 66,34 61,40 C57,45 55,55 54,65 Z" />
+
+</vector>

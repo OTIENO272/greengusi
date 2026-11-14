@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Green Gusii Hub</string>
+    <string name="hub_title">Green Gusii Action Hub</string>
+    <string name="pledge_1">Plant indigenous trees along River Gucha and waterways (+100 pts)</string>
+    <string name="pledge_2">Uproot / replace Eucalyptus within 30m of water springs with Bamboo (+100 pts)</string>
+    <string name="pledge_3">Practice contour terracing &amp; compost manuring on tea/coffee slopes (+100 pts)</string>
+    <string name="pledge_4">Participate in community wetland &amp; plastic-free drainage cleanup (+100 pts)</string>
+    <string name="pledge_5">Adopt agroforestry with Hass Avocado &amp; Grevillea on farm boundaries (+100 pts)</string>
 </resources>
