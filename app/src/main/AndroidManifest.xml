@@ -38,6 +38,10 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".RegisterActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
             android:name=".GreenGusiiActivity"
             android:exported="false" />
         <activity

@@ -8,13 +8,11 @@ import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
-import android.widget.LinearLayout
-import android.widget.ScrollView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.edit
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
@@ -25,17 +23,11 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
-        val scrollView = findViewById<ScrollView>(R.id.mainScrollView)
         val mainLayout = findViewById<View>(R.id.main)
-
-        // Proper Edge-to-Edge inset handling (accounts for system bars & IME/keyboard)
         ViewCompat.setOnApplyWindowInsetsListener(mainLayout) { view, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             val ime = insets.getInsets(WindowInsetsCompat.Type.ime())
-
-            // Convert 24dp to pixels
             val extraPaddingPx = (24 * resources.displayMetrics.density).toInt()
-
             view.setPadding(
                 systemBars.left + extraPaddingPx,
                 systemBars.top + extraPaddingPx,
@@ -47,120 +39,89 @@ class MainActivity : AppCompatActivity() {
 
         val prefs = getSharedPreferences("GreenGusiiPrefs", Context.MODE_PRIVATE)
 
-        // Connect Form Input Views
-        val nameInput = findViewById<EditText>(R.id.nameInput)
-        val emailInput = findViewById<EditText>(R.id.emailInput)
-        val passwordInput = findViewById<EditText>(R.id.passwordInput)
-        val phoneInput = findViewById<EditText>(R.id.phoneInput)
-        val countyInput = findViewById<EditText>(R.id.countyInput)
-        val subCountyInput = findViewById<EditText>(R.id.subCountyInput)
-        val wardInput = findViewById<EditText>(R.id.wardInput)
-        val submitButton = findViewById<Button>(R.id.submitButton)
+        val emailInput = findViewById<EditText>(R.id.loginEmailInput)
+        val passwordInput = findViewById<EditText>(R.id.loginPasswordInput)
+        val loginButton = findViewById<Button>(R.id.loginButton)
+        val forgotPasswordLink = findViewById<TextView>(R.id.forgotPasswordLink)
+        val registerLink = findViewById<TextView>(R.id.registerLink)
 
-        // Connect Summary Card Views
-        val summaryCard = findViewById<LinearLayout>(R.id.summaryCard)
-        val welcomeText = findViewById<TextView>(R.id.welcomeText)
-        val detailsText = findViewById<TextView>(R.id.detailsText)
-        val enterHubButton = findViewById<Button>(R.id.enterHubButton)
-
-        // Restore previously saved details if available
-        val savedName = prefs.getString("USER_NAME", null)
-        if (!savedName.isNullOrEmpty()) {
-            nameInput.setText(savedName)
-            emailInput.setText(prefs.getString("USER_EMAIL", ""))
-            phoneInput.setText(prefs.getString("USER_PHONE", ""))
-            countyInput.setText(prefs.getString("USER_COUNTY", ""))
-            subCountyInput.setText(prefs.getString("USER_SUBCOUNTY", ""))
-            wardInput.setText(prefs.getString("USER_WARD", ""))
+        // Pre-fill registered email if available
+        val savedEmail = prefs.getString("USER_EMAIL", null)
+        if (!savedEmail.isNullOrEmpty()) {
+            emailInput.setText(savedEmail)
         }
 
-        submitButton.setOnClickListener {
-            val name = nameInput.text.toString().trim()
+        // Login Handler
+        loginButton.setOnClickListener {
             val email = emailInput.text.toString().trim()
             val password = passwordInput.text.toString()
-            val phone = phoneInput.text.toString().trim()
-            val county = countyInput.text.toString().trim()
-            val subCounty = subCountyInput.text.toString().trim()
-            val ward = wardInput.text.toString().trim()
 
-            // Form validation
             when {
-                name.isEmpty() -> {
-                    nameInput.error = "Please enter your name"
-                    nameInput.requestFocus()
-                }
                 email.isEmpty() || !Patterns.EMAIL_ADDRESS.matcher(email).matches() -> {
                     emailInput.error = "Please enter a valid email address"
                     emailInput.requestFocus()
                 }
-                password.length < 6 -> {
-                    passwordInput.error = "Password must be at least 6 characters"
+                password.isEmpty() -> {
+                    passwordInput.error = "Please enter your password"
                     passwordInput.requestFocus()
                 }
-                phone.isEmpty() -> {
-                    phoneInput.error = "Please enter your phone number"
-                    phoneInput.requestFocus()
-                }
-                county.isEmpty() -> {
-                    countyInput.error = "Please enter your County"
-                    countyInput.requestFocus()
-                }
-                subCounty.isEmpty() -> {
-                    subCountyInput.error = "Please enter your Sub-County"
-                    subCountyInput.requestFocus()
-                }
-                ward.isEmpty() -> {
-                    wardInput.error = "Please enter your Ward"
-                    wardInput.requestFocus()
-                }
                 else -> {
-                    // Hide soft keyboard
                     hideKeyboard()
 
-                    // Save details via AndroidX KTX edit extension
-                    prefs.edit {
-                        putString("USER_NAME", name)
-                        putString("USER_EMAIL", email)
-                        putString("USER_PHONE", phone)
-                        putString("USER_COUNTY", county)
-                        putString("USER_SUBCOUNTY", subCounty)
-                        putString("USER_WARD", ward)
-                        putString("USER_ADDRESS", "$ward, $subCounty ($county)")
-                    }
+                    val registeredEmail = prefs.getString("USER_EMAIL", null)
+                    val registeredPassword = prefs.getString("USER_PASSWORD", null)
+                    val registeredName = prefs.getString("USER_NAME", "Champion")
 
-                    val maskedPassword = "•".repeat(password.length)
-
-                    welcomeText.text = "Welcome to Green Gusii, $name!"
-                    detailsText.text = """
-                        Name: $name
-                        Email: $email
-                        Password: $maskedPassword
-                        Phone: $phone
-                        County: $county
-                        Sub-County: $subCounty
-                        Ward: $ward
-                    """.trimIndent()
-
-                    summaryCard.visibility = View.VISIBLE
-
-                    // Smooth scroll down to reveal the summary card
-                    summaryCard.post {
-                        (mainLayout.parent as? ScrollView)?.smoothScrollTo(0, summaryCard.bottom)
+                    if (registeredEmail != null && registeredPassword != null) {
+                        if (email.equals(registeredEmail, ignoreCase = true) && password == registeredPassword) {
+                            Toast.makeText(this, "Welcome back, $registeredName!", Toast.LENGTH_SHORT).show()
+                            startActivity(Intent(this, GreenGusiiActivity::class.java))
+                        } else if (!email.equals(registeredEmail, ignoreCase = true)) {
+                            emailInput.error = "No account found with this email"
+                            emailInput.requestFocus()
+                        } else {
+                            passwordInput.error = "Incorrect password"
+                            passwordInput.requestFocus()
+                        }
+                    } else {
+                        // Demo / First-time fallback: log in directly
+                        Toast.makeText(this, "Logged in to Green Gusii Hub!", Toast.LENGTH_SHORT).show()
+                        startActivity(Intent(this, GreenGusiiActivity::class.java))
                     }
                 }
             }
         }
 
-        enterHubButton.setOnClickListener {
-            try {
-                startActivity(Intent(this, GreenGusiiActivity::class.java))
-            } catch (e: Exception) {
-                Toast.makeText(
-                    this,
-                    "GreenGusiiActivity not found! Please check AndroidManifest.xml",
-                    Toast.LENGTH_LONG
-                ).show()
+        // Forgot Password Handler
+        forgotPasswordLink.setOnClickListener {
+            val email = emailInput.text.toString().trim()
+            val dialogInput = EditText(this).apply {
+                hint = "Enter your registered email"
+                setText(email)
+                setPadding(50, 40, 50, 40)
             }
+
+            AlertDialog.Builder(this)
+                .setTitle("Reset Password")
+                .setMessage("We will send a password reset verification link to your email:")
+                .setView(dialogInput)
+                .setPositiveButton("Send Link") { _, _ ->
+                    val targetEmail = dialogInput.text.toString().trim()
+                    if (targetEmail.isNotEmpty()) {
+                        Toast.makeText(
+                            this,
+                            "Password recovery link sent to $targetEmail ✉️",
+                            Toast.LENGTH_LONG
+                        ).show()
+                    }
+                }
+                .setNegativeButton("Cancel", null)
+                .show()
+        }
+
+        // Don't have an account -> Register Link
+        registerLink.setOnClickListener {
+            startActivity(Intent(this, RegisterActivity::class.java))
         }
     }
 

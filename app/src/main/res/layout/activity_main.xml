@@ -9,227 +9,160 @@
     android:fillViewport="true"
     tools:context=".MainActivity">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="24dp">
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="28dp">
 
+        <!-- App Icon / Emblem -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:fontFamily="serif"
+            android:text="🌱"
+            android:textSize="52sp" />
+
+        <!-- Main Title changed to Green Gusii Hub -->
         <TextView
             android:id="@+id/formTitle"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="8dp"
             android:fontFamily="monospace"
-            android:text="Green Gusii Registration"
+            android:text="Green Gusii Hub"
             android:textColor="#FFFFFF"
-            android:textSize="26sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:textSize="28sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/formSubtitle"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
             android:fontFamily="sans-serif"
-            android:text="Join Kisii &amp; Nyamira champions protecting our hills, rivers, and wetlands."
+            android:gravity="center"
+            android:text="Sign in to your account to monitor eco-impact and highland tree conservation."
             android:textColor="#A5D6A7"
-            android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/formTitle" />
+            android:textSize="14sp" />
 
-        <EditText
-            android:id="@+id/nameInput"
-            android:layout_width="0dp"
-            android:layout_height="52dp"
-            android:layout_marginTop="24dp"
-            android:autofillHints="name"
-            android:background="#FFFFFF"
-            android:fontFamily="monospace"
-            android:hint="Enter Your Name"
-            android:imeOptions="actionNext"
-            android:inputType="textPersonName|textCapWords"
-            android:paddingHorizontal="16dp"
-            android:textColor="#1A1C1E"
-            android:textColorHint="#757575"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/formSubtitle" />
-
-        <EditText
-            android:id="@+id/emailInput"
-            android:layout_width="0dp"
-            android:layout_height="52dp"
-            android:layout_marginTop="16dp"
-            android:autofillHints="emailAddress"
-            android:background="#FFFFFF"
-            android:fontFamily="monospace"
-            android:hint="Enter Email"
-            android:imeOptions="actionNext"
-            android:inputType="textEmailAddress"
-            android:paddingHorizontal="16dp"
-            android:textColor="#1A1C1E"
-            android:textColorHint="#757575"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/nameInput" />
-
-        <EditText
-            android:id="@+id/passwordInput"
-            android:layout_width="0dp"
-            android:layout_height="52dp"
-            android:layout_marginTop="16dp"
-            android:autofillHints="password"
-            android:background="#FFFFFF"
-            android:fontFamily="monospace"
-            android:hint="Password"
-            android:imeOptions="actionNext"
-            android:inputType="textPassword"
-            android:paddingHorizontal="16dp"
-            android:textColor="#1A1C1E"
-            android:textColorHint="#757575"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/emailInput" />
-
-        <EditText
-            android:id="@+id/phoneInput"
-            android:layout_width="0dp"
-            android:layout_height="52dp"
-            android:layout_marginTop="16dp"
-            android:autofillHints="phone"
-            android:background="#FFFFFF"
-            android:fontFamily="monospace"
-            android:hint="Enter Phone Number"
-            android:imeOptions="actionNext"
-            android:inputType="phone"
-            android:paddingHorizontal="16dp"
-            android:textColor="#1A1C1E"
-            android:textColorHint="#757575"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/passwordInput" />
-
-        <EditText
-            android:id="@+id/countyInput"
-            android:layout_width="0dp"
-            android:layout_height="52dp"
-            android:layout_marginTop="16dp"
-            android:autofillHints="postalAddress"
-            android:background="#FFFFFF"
-            android:fontFamily="monospace"
-            android:hint="County (e.g., Kisii or Nyamira)"
-            android:imeOptions="actionNext"
-            android:inputType="textCapWords"
-            android:paddingHorizontal="16dp"
-            android:textColor="#1A1C1E"
-            android:textColorHint="#757575"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/phoneInput" />
-
-        <EditText
-            android:id="@+id/subCountyInput"
-            android:layout_width="0dp"
-            android:layout_height="52dp"
-            android:layout_marginTop="16dp"
-            android:autofillHints="postalAddress"
-            android:background="#FFFFFF"
-            android:fontFamily="monospace"
-            android:hint="Sub-County (e.g., Kitutu Chache South)"
-            android:imeOptions="actionNext"
-            android:inputType="textCapWords"
-            android:paddingHorizontal="16dp"
-            android:textColor="#1A1C1E"
-            android:textColorHint="#757575"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/countyInput" />
-
-        <EditText
-            android:id="@+id/wardInput"
-            android:layout_width="0dp"
-            android:layout_height="52dp"
-            android:layout_marginTop="16dp"
-            android:autofillHints="postalAddress"
-            android:background="#FFFFFF"
-            android:fontFamily="monospace"
-            android:hint="Ward (e.g., Bogusero)"
-            android:imeOptions="actionDone"
-            android:inputType="textCapWords"
-            android:paddingHorizontal="16dp"
-            android:textColor="#1A1C1E"
-            android:textColorHint="#757575"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/subCountyInput" />
-
-        <Button
-            android:id="@+id/submitButton"
-            android:layout_width="0dp"
-            android:layout_height="56dp"
-            android:layout_marginTop="28dp"
-            android:backgroundTint="#1A1C1E"
-            android:fontFamily="sans-serif-medium"
-            android:text="Submit"
-            android:textAllCaps="false"
-            android:textColor="#FFFFFF"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/wardInput" />
-
+        <!-- Login Card / Inputs Container -->
         <LinearLayout
-            android:id="@+id/summaryCard"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:background="#E8F5E9"
-            android:orientation="vertical"
-            android:padding="20dp"
-            android:visibility="gone"
-            tools:visibility="visible"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/submitButton">
+            android:layout_marginTop="36dp"
+            android:orientation="vertical">
 
+            <!-- Email Label & Input -->
             <TextView
-                android:id="@+id/welcomeText"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="serif"
-                android:textColor="#1B5E20"
-                android:textSize="20sp"
-                android:textStyle="bold|italic" />
+                android:fontFamily="sans-serif-medium"
+                android:text="Email Address:"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp" />
 
-            <TextView
-                android:id="@+id/detailsText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:fontFamily="monospace"
-                android:lineSpacingExtra="6dp"
-                android:textColor="#1A1C1E"
-                android:textSize="14sp"
-                android:textStyle="italic" />
-
-            <Button
-                android:id="@+id/enterHubButton"
+            <EditText
+                android:id="@+id/loginEmailInput"
                 android:layout_width="match_parent"
                 android:layout_height="52dp"
+                android:layout_marginTop="6dp"
+                android:autofillHints="emailAddress"
+                android:background="#FFFFFF"
+                android:fontFamily="monospace"
+                android:hint="name@example.com"
+                android:imeOptions="actionNext"
+                android:inputType="textEmailAddress"
+                android:paddingHorizontal="16dp"
+                android:textColor="#1A1C1E"
+                android:textColorHint="#757575"
+                android:textSize="15sp" />
+
+            <!-- Password Label & Input -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:backgroundTint="#1B5E20"
                 android:fontFamily="sans-serif-medium"
-                android:text="Enter Green Gusii Hub →"
+                android:text="Password:"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/loginPasswordInput"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginTop="6dp"
+                android:autofillHints="password"
+                android:background="#FFFFFF"
+                android:fontFamily="monospace"
+                android:hint="••••••••"
+                android:imeOptions="actionDone"
+                android:inputType="textPassword"
+                android:paddingHorizontal="16dp"
+                android:textColor="#1A1C1E"
+                android:textColorHint="#757575"
+                android:textSize="15sp" />
+
+            <!-- Forgot Password Link -->
+            <TextView
+                android:id="@+id/forgotPasswordLink"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginTop="10dp"
+                android:fontFamily="sans-serif-medium"
+                android:padding="4dp"
+                android:text="Forgot Password?"
+                android:textColor="#A5D6A7"
+                android:textSize="13sp" />
+
+            <!-- Login Button -->
+            <Button
+                android:id="@+id/loginButton"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="#2E7D32"
+                android:fontFamily="sans-serif-medium"
+                android:text="Login"
                 android:textAllCaps="false"
                 android:textColor="#FFFFFF"
-                android:textSize="15sp" />
+                android:textSize="16sp" />
 
         </LinearLayout>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <!-- Don't have an account link -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="24dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:text="Don't have an account? "
+                android:textColor="#C8E6C9"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/registerLink"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:text="Register here"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
 </ScrollView>
