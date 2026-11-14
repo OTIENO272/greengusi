@@ -87,11 +87,12 @@ class RegisterActivity : AppCompatActivity() {
                     wardInput.requestFocus()
                 }
                 else -> {
-                    // Save credentials locally
+                    // Save credentials locally with SHA-256 secure hashing
+                    val hashedPassword = SecurityUtils.hashPassword(password)
                     prefs.edit {
                         putString("USER_NAME", name)
                         putString("USER_EMAIL", email)
-                        putString("USER_PASSWORD", password)
+                        putString("USER_PASSWORD_HASH", hashedPassword)
                         putString("USER_PHONE", phone)
                         putString("USER_COUNTY", county)
                         putString("USER_SUBCOUNTY", subCounty)

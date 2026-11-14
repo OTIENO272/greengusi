@@ -69,11 +69,18 @@ class MainActivity : AppCompatActivity() {
                     hideKeyboard()
 
                     val registeredEmail = prefs.getString("USER_EMAIL", null)
-                    val registeredPassword = prefs.getString("USER_PASSWORD", null)
+                    val registeredPasswordHash = prefs.getString("USER_PASSWORD_HASH", null)
+                    val legacyPassword = prefs.getString("USER_PASSWORD", null)
                     val registeredName = prefs.getString("USER_NAME", "Champion")
 
-                    if (registeredEmail != null && registeredPassword != null) {
-                        if (email.equals(registeredEmail, ignoreCase = true) && password == registeredPassword) {
+                    val isPasswordCorrect = when {
+                        registeredPasswordHash != null -> SecurityUtils.verifyPassword(password, registeredPasswordHash)
+                        legacyPassword != null -> password == legacyPassword
+                        else -> true
+                    }
+
+                    if (registeredEmail != null) {
+                        if (email.equals(registeredEmail, ignoreCase = true) && isPasswordCorrect) {
                             Toast.makeText(this, "Welcome back, $registeredName!", Toast.LENGTH_SHORT).show()
                             startActivity(Intent(this, GreenGusiiActivity::class.java))
                         } else if (!email.equals(registeredEmail, ignoreCase = true)) {

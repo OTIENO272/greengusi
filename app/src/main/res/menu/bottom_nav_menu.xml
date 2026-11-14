@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@drawable/ic_nav_home"
+        android:title="Hub" />
+    <item
+        android:id="@+id/nav_planner"
+        android:icon="@drawable/ic_nav_tree"
+        android:title="Tree Planner" />
+    <item
+        android:id="@+id/nav_hazard"
+        android:icon="@drawable/ic_nav_hazard"
+        android:title="Report Hazard" />
+    <item
+        android:id="@+id/nav_rewards"
+        android:icon="@drawable/ic_nav_rewards"
+        android:title="Eco-Rewards" />
+</menu>

@@ -304,6 +304,28 @@ class GreenGusiiActivity : AppCompatActivity() {
         findViewById<Button>(R.id.editProfileButton).setOnClickListener {
             finish()
         }
+
+        // Bottom Navigation Bar
+        val bottomNav = findViewById<com.google.android.material.bottomnavigation.BottomNavigationView>(R.id.bottomNavigationView)
+        bottomNav.selectedItemId = R.id.nav_home
+        bottomNav.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.nav_home -> true
+                R.id.nav_planner -> {
+                    startActivity(Intent(this, TreePlannerActivity::class.java))
+                    true
+                }
+                R.id.nav_hazard -> {
+                    startActivity(Intent(this, ReportIssueActivity::class.java))
+                    true
+                }
+                R.id.nav_rewards -> {
+                    startActivity(Intent(this, RewardsActivity::class.java))
+                    true
+                }
+                else -> false
+            }
+        }
     }
 
     private fun createNotificationChannel() {

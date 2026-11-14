@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rewardsScrollView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1D493A"
+    android:fillViewport="true"
+    tools:context=".RewardsActivity">
+
+    <LinearLayout
+        android:id="@+id/rewardsRoot"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!-- Header -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
+            android:letterSpacing="0.1"
+            android:text="COMMUNITY VALUE &amp; REWARDS"
+            android:textColor="#A5D6A7"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:fontFamily="monospace"
+            android:text="Eco-Rewards &amp; Impact"
+            android:textColor="#FFFFFF"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <!-- User Points Balance Banner -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:background="#264D3F"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="14dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif-medium"
+                android:text="Your Redeemable Balance:"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/rewardsPointsBalance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#1B5E20"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="4dp"
+                android:text="500 pts"
+                android:textColor="#D4AF37"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- SECTION 1: SPONSOR-BACKED ECO-REWARDS (B2B) -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="sans-serif-medium"
+            android:letterSpacing="0.1"
+            android:text="SPONSOR-BACKED ECO-VOUCHERS"
+            android:textColor="#A5D6A7"
+            android:textSize="12sp" />
+
+        <LinearLayout
+            android:id="@+id/vouchersContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="vertical" />
+
+        <!-- SECTION 2: M-PESA CHAMA & GROUP TREE DRIVES -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="sans-serif-medium"
+            android:letterSpacing="0.1"
+            android:text="CHAMA &amp; GROUP TREE DRIVES"
+            android:textColor="#A5D6A7"
+            android:textSize="12sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="#E8F5E9"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="serif"
+                android:text="🎋 River Gucha Riparian Bamboo Drive"
+                android:textColor="#1B5E20"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:fontFamily="sans-serif"
+                android:text="Community fund pooling by Gusii Chamas to plant 1,200 giant bamboo culms along River Gucha banks."
+                android:textColor="#37474F"
+                android:textSize="13sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="monospace"
+                    android:text="Raised: KSh 21,400"
+                    android:textColor="#1B5E20"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="monospace"
+                    android:text="Goal: KSh 30,000"
+                    android:textColor="#546E7A"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <ProgressBar
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:layout_marginTop="6dp"
+                android:max="30000"
+                android:progress="21400"
+                android:progressTint="#1B5E20" />
+
+            <Button
+                android:id="@+id/contributeMpesaButton"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="12dp"
+                android:backgroundTint="#00796B"
+                android:fontFamily="sans-serif-medium"
+                android:text="💚 Contribute via M-Pesa (Simulated)"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+        <!-- SECTION 3: CORPORATE & SCHOOL "ADOPT-A-RIVER / HILL" -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="sans-serif-medium"
+            android:letterSpacing="0.1"
+            android:text="CORPORATE &amp; SCHOOL CAMPAIGNS"
+            android:textColor="#A5D6A7"
+            android:textSize="12sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="#E8F5E9"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="serif"
+                android:text="🏆 Adopt-a-River &amp; Adopt-a-Hill Standings"
+                android:textColor="#1B5E20"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:fontFamily="sans-serif"
+                android:text="1. 🏫 Kisii School Eco-Warriors: 1,840 trees (River Gucha Section A)\n2. 🏫 Nyabururu Girls Conservation Club: 1,620 trees (River Nyakomisaro)\n3. 🏫 Sironga Girls Green Team: 1,450 trees (Manga Hills Slope)\n4. 💼 Gusii Mwalimu SACCO Staff: 1,290 trees (River Kuja Buffer)\n5. 🎓 Kisii University Eco-Club: 1,180 trees (Daraja Mbili Riverbank)"
+                android:textColor="#263238"
+                android:textSize="13sp"
+                android:lineSpacingExtra="4dp" />
+
+            <Button
+                android:id="@+id/registerTeamButton"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="#2E7D32"
+                android:fontFamily="sans-serif-medium"
+                android:text="Register School / Corporate Team"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:textSize="13sp" />
+
+        </LinearLayout>
+
+        <!-- SECTION 4: COUNTY & NGO WARD IMPACT REPORT EXPORT -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="sans-serif-medium"
+            android:letterSpacing="0.1"
+            android:text="GOVERNMENT &amp; NGO DASHBOARD"
+            android:textColor="#A5D6A7"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/exportNgoReportButton"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="#1565C0"
+            android:fontFamily="sans-serif-medium"
+            android:text="📄 Generate Ward Impact Report (NEMA / County)"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp" />
+
+        <!-- SECTION 5: PRIVACY POLICY & COMPLIANCE -->
+        <Button
+            android:id="@+id/privacyPolicyButton"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="12dp"
+            android:backgroundTint="#264D3F"
+            android:fontFamily="sans-serif"
+            android:text="🔒 Privacy Policy &amp; Data Transparency (ODPC Kenya)"
+            android:textAllCaps="false"
+            android:textColor="#A5D6A7"
+            android:textSize="13sp" />
+
+        <Button
+            android:id="@+id/rewardsBackToHubButton"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="24dp"
+            android:backgroundTint="#1D493A"
+            android:fontFamily="sans-serif"
+            android:text="← Back to Action Hub"
+            android:textAllCaps="false"
+            android:textColor="#C8E6C9"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+</ScrollView>
