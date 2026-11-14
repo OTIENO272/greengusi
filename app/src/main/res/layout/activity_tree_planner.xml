@@ -240,6 +240,18 @@
                 android:textColor="#FFFFFF"
                 android:textSize="14sp" />
 
+            <Button
+                android:id="@+id/orderSeedlingsButton"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="8dp"
+                android:backgroundTint="#00796B"
+                android:fontFamily="sans-serif-medium"
+                android:text="🌱 Find Certified Nurseries to Order"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp" />
+
         </LinearLayout>
 
         <Button

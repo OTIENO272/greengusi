@@ -47,6 +47,11 @@ class TreePlannerActivity : AppCompatActivity() {
         val avocadoText = findViewById<TextView>(R.id.avocadoText)
         val crotonBambooText = findViewById<TextView>(R.id.crotonBambooText)
         val sharePlanButton = findViewById<Button>(R.id.sharePlanButton)
+        val orderSeedlingsButton = findViewById<Button>(R.id.orderSeedlingsButton)
+
+        orderSeedlingsButton.setOnClickListener {
+            startActivity(Intent(this, NurseryDirectoryActivity::class.java))
+        }
 
         fun calculateAndDisplay(acres: Double) {
             if (acres <= 0.0) {

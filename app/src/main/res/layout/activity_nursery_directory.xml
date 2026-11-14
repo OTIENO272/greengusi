@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nurseryRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1D493A"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".NurseryDirectoryActivity">
+
+    <!-- Header -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-medium"
+        android:letterSpacing="0.1"
+        android:text="VERIFIED HIGHLAND NURSERIES"
+        android:textColor="#A5D6A7"
+        android:textSize="12sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:fontFamily="monospace"
+        android:text="Seedling Directory"
+        android:textColor="#FFFFFF"
+        android:textSize="22sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:fontFamily="sans-serif"
+        android:text="Find certified tree seedlings across Kisii &amp; Nyamira with direct tap-to-call phone contacts."
+        android:textColor="#C8E6C9"
+        android:textSize="13sp" />
+
+    <!-- Search Input -->
+    <EditText
+        android:id="@+id/searchNurseryInput"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="14dp"
+        android:background="#FFFFFF"
+        android:drawableStart="@android:drawable/ic_menu_search"
+        android:drawablePadding="10dp"
+        android:fontFamily="sans-serif"
+        android:hint="Search by town, nursery, or tree species..."
+        android:inputType="text"
+        android:paddingHorizontal="14dp"
+        android:textColor="#1A1C1E"
+        android:textColorHint="#757575"
+        android:textSize="14sp" />
+
+    <!-- Nursery List Container -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="12dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:id="@+id/nurseryListLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+
+    </ScrollView>
+
+    <Button
+        android:id="@+id/nurseryBackToHubButton"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="#264D3F"
+        android:fontFamily="sans-serif"
+        android:text="← Back to Action Hub"
+        android:textAllCaps="false"
+        android:textColor="#A5D6A7"
+        android:textSize="14sp" />
+
+</LinearLayout>
