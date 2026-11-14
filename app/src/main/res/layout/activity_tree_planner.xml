@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/plannerScrollView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1D493A"
+    android:fillViewport="true"
+    tools:context=".TreePlannerActivity">
+
+    <LinearLayout
+        android:id="@+id/plannerRoot"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!-- Title -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
+            android:letterSpacing="0.1"
+            android:text="HIGHLAND AGROFORESTRY CALCULATOR"
+            android:textColor="#A5D6A7"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:fontFamily="monospace"
+            android:text="Farm Seedling Planner"
+            android:textColor="#FFFFFF"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:fontFamily="sans-serif"
+            android:text="Calculate the ideal tree mix to protect tea, coffee, and bananas in Kisii &amp; Nyamira without choking sunlight."
+            android:textColor="#C8E6C9"
+            android:textSize="13sp" />
+
+        <!-- Input Section -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="Enter Farm Land Size (in Acres):"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/acresInput"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginTop="6dp"
+            android:background="#FFFFFF"
+            android:fontFamily="monospace"
+            android:hint="e.g., 1.5"
+            android:imeOptions="actionDone"
+            android:inputType="numberDecimal"
+            android:paddingHorizontal="14dp"
+            android:textColor="#1A1C1E"
+            android:textColorHint="#757575"
+            android:textSize="16sp" />
+
+        <!-- Quick Presets -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/presetHalfAcre"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="0dp"
+                android:layout_height="38dp"
+                android:layout_marginEnd="4dp"
+                android:layout_weight="1"
+                android:backgroundTint="#264D3F"
+                android:text="0.5 Ac"
+                android:textColor="#FFFFFF"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/presetOneAcre"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="0dp"
+                android:layout_height="38dp"
+                android:layout_marginEnd="4dp"
+                android:layout_weight="1"
+                android:backgroundTint="#264D3F"
+                android:text="1.0 Ac"
+                android:textColor="#FFFFFF"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/presetTwoAcres"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="0dp"
+                android:layout_height="38dp"
+                android:layout_marginEnd="4dp"
+                android:layout_weight="1"
+                android:backgroundTint="#264D3F"
+                android:text="2.0 Ac"
+                android:textColor="#FFFFFF"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/presetFiveAcres"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="0dp"
+                android:layout_height="38dp"
+                android:layout_weight="1"
+                android:backgroundTint="#264D3F"
+                android:text="5.0 Ac"
+                android:textColor="#FFFFFF"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <!-- Calculate Button -->
+        <Button
+            android:id="@+id/calculatePlanButton"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="#2E7D32"
+            android:fontFamily="sans-serif-medium"
+            android:text="🌱 Calculate Seedling Mix"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp" />
+
+        <!-- Results Card -->
+        <LinearLayout
+            android:id="@+id/resultsCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="#E8F5E9"
+            android:orientation="vertical"
+            android:padding="18dp"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <TextView
+                android:id="@+id/resultsTitleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="serif"
+                android:text="Recommended Agroforestry Mix"
+                android:textColor="#1B5E20"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/totalSeedlingsText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:fontFamily="monospace"
+                android:text="Total Seedlings Needed: 105"
+                android:textColor="#2E7D32"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <!-- Tree breakdowns -->
+            <TextView
+                android:id="@+id/grevilleaText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:fontFamily="sans-serif"
+                android:text="🌳 Grevillea Robusta: 35 seedlings\n(Boundary windbreak &amp; light canopy; deep roots avoid crop competition)"
+                android:textColor="#1A1C1E"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/avocadoText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="sans-serif"
+                android:text="🥑 Hass Avocado / Macadamia: 50 seedlings\n(High-value cash crops integrated with tea/coffee strips)"
+                android:textColor="#1A1C1E"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/crotonBambooText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="sans-serif"
+                android:text="🎋 Croton Megalocarpus / Bamboo: 20 seedlings\n(Riverbank stabilization &amp; erosion control; replaces eucalyptus)"
+                android:textColor="#1A1C1E"
+                android:textSize="13sp" />
+
+            <!-- Crop Yield & Spacing Protection Notice -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="#C8E6C9"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="☀️ Crop Protection Spacing Guide:"
+                    android:textColor="#1B5E20"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="sans-serif"
+                    android:text="Maintain at least 8m x 8m spacing between trees. This ensures 65%+ direct sunlight penetrates down to nourish your tea bushes, coffee berries, and banana stems while keeping root competition minimal."
+                    android:textColor="#1A1C1E"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/sharePlanButton"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="14dp"
+                android:backgroundTint="#1B5E20"
+                android:fontFamily="sans-serif-medium"
+                android:text="📤 Share Farm Plan (WhatsApp / Notes)"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/plannerBackToHubButton"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="24dp"
+            android:backgroundTint="#264D3F"
+            android:fontFamily="sans-serif"
+            android:text="← Back to Action Hub"
+            android:textAllCaps="false"
+            android:textColor="#A5D6A7"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+</ScrollView>

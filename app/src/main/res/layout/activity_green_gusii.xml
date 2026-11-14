@@ -1,32 +1,221 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/hubRoot"
+    android:id="@+id/hubScrollView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#1D493A"
-    android:gravity="center"
-    android:orientation="vertical"
-    android:padding="24dp"
+    android:fillViewport="true"
     tools:context=".GreenGusiiActivity">
 
-    <TextView
-        android:id="@+id/hubWelcomeText"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/hubRoot"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="serif"
-        android:text="Welcome to Green Gusii Hub"
-        android:textColor="#FFFFFF"
-        android:textSize="24sp"
-        android:textStyle="bold" />
+        android:orientation="vertical"
+        android:padding="20dp">
 
-    <TextView
-        android:id="@+id/hubLocationText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:fontFamily="monospace"
-        android:textColor="#A5D6A7"
-        android:textSize="16sp" />
+        <!-- Header -->
+        <TextView
+            android:id="@+id/hubHeaderTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="GREEN GUSII ACTION HUB"
+            android:textColor="#A5D6A7"
+            android:textSize="12sp"
+            android:letterSpacing="0.1" />
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/hubWelcomeText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:fontFamily="monospace"
+            android:text="Welcome, Champion!"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/hubLocationText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:fontFamily="sans-serif"
+            android:text="Ward: Bogusero | Kitutu Chache South, Kisii"
+            android:textColor="#C8E6C9"
+            android:textSize="14sp" />
+
+        <!-- Eco-Impact Tracker Card -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="#E8F5E9"
+            android:orientation="vertical"
+            android:padding="18dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="serif"
+                android:text="🌿 Live Eco-Impact Tracker"
+                android:textColor="#1B5E20"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/pointsLabel"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="monospace"
+                    android:text="Impact: 0 / 500 pts"
+                    android:textColor="#1A1C1E"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/rankBadge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#1B5E20"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="4dp"
+                    android:text="New Member"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <ProgressBar
+                android:id="@+id/ecoProgressBar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:layout_marginTop="10dp"
+                android:max="500"
+                android:progress="0"
+                android:progressTint="#1B5E20" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="Check off your local environmental pledges:"
+                android:textColor="#2E7D32"
+                android:textSize="13sp" />
+
+            <CheckBox
+                android:id="@+id/pledge1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:buttonTint="#1B5E20"
+                android:text="Plant indigenous trees along riverbanks (+100 pts)"
+                android:textColor="#1A1C1E"
+                android:textSize="13sp" />
+
+            <CheckBox
+                android:id="@+id/pledge2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:buttonTint="#1B5E20"
+                android:text="Avoid / replace Eucalyptus within 30m of springs (+100 pts)"
+                android:textColor="#1A1C1E"
+                android:textSize="13sp" />
+
+            <CheckBox
+                android:id="@+id/pledge3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:buttonTint="#1B5E20"
+                android:text="Practice terracing &amp; compost manuring in tea/coffee (+100 pts)"
+                android:textColor="#1A1C1E"
+                android:textSize="13sp" />
+
+            <CheckBox
+                android:id="@+id/pledge4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:buttonTint="#1B5E20"
+                android:text="Participate in community wetland &amp; stream cleanups (+100 pts)"
+                android:textColor="#1A1C1E"
+                android:textSize="13sp" />
+
+            <CheckBox
+                android:id="@+id/pledge5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:buttonTint="#1B5E20"
+                android:text="Report waste dumping or hazardous encroachments (+100 pts)"
+                android:textColor="#1A1C1E"
+                android:textSize="13sp" />
+
+        </LinearLayout>
+
+        <!-- Field Tools Navigation -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="COMMUNITY FIELD TOOLS"
+            android:textColor="#A5D6A7"
+            android:textSize="12sp"
+            android:letterSpacing="0.1" />
+
+        <!-- Button: Report Hazard -->
+        <Button
+            android:id="@+id/openReportToolButton"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="#C62828"
+            android:fontFamily="sans-serif-medium"
+            android:text="🚨 Report Environmental Hazard"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp" />
+
+        <!-- Button: Tree Planner -->
+        <Button
+            android:id="@+id/openTreePlannerButton"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="12dp"
+            android:backgroundTint="#2E7D32"
+            android:fontFamily="sans-serif-medium"
+            android:text="🌲 Highland Agroforestry Tree Planner"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp" />
+
+        <!-- Logout/Edit Profile option -->
+        <Button
+            android:id="@+id/editProfileButton"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="24dp"
+            android:backgroundTint="#264D3F"
+            android:fontFamily="sans-serif"
+            android:text="← Update Registration Profile"
+            android:textAllCaps="false"
+            android:textColor="#A5D6A7"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+</ScrollView>

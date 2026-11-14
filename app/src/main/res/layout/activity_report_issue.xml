@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/reportScrollView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1D493A"
+    android:fillViewport="true"
+    tools:context=".ReportIssueActivity">
+
+    <LinearLayout
+        android:id="@+id/reportRoot"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!-- Title -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
+            android:letterSpacing="0.1"
+            android:text="COMMUNITY ALERT TOOL"
+            android:textColor="#EF9A9A"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:fontFamily="monospace"
+            android:text="Report Environmental Hazard"
+            android:textColor="#FFFFFF"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:fontFamily="sans-serif"
+            android:text="Broadcast instant alerts on wetland encroachment, river dumping, and eucalyptus threats to local NEMA &amp; county leaders."
+            android:textColor="#C8E6C9"
+            android:textSize="13sp" />
+
+        <!-- Sub-County / Town Picker -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="Select Gusii Sub-County / Town:"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp" />
+
+        <Spinner
+            android:id="@+id/subCountySpinner"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="6dp"
+            android:background="#FFFFFF"
+            android:paddingHorizontal="12dp" />
+
+        <!-- Hazard Type Picker -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="Select Environmental Threat:"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp" />
+
+        <Spinner
+            android:id="@+id/hazardTypeSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="6dp"
+            android:background="#FFFFFF"
+            android:paddingHorizontal="12dp" />
+
+        <!-- Landmark / Specific location -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="Specific Landmark / River / Village:"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/landmarkInput"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="6dp"
+            android:background="#FFFFFF"
+            android:fontFamily="monospace"
+            android:hint="e.g. Near River Riana bridge, Nyatieko"
+            android:imeOptions="actionNext"
+            android:inputType="textCapWords"
+            android:paddingHorizontal="14dp"
+            android:textColor="#1A1C1E"
+            android:textColorHint="#757575"
+            android:textSize="14sp" />
+
+        <!-- Description Details -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="Observed Hazard Details:"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/hazardDescriptionInput"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:layout_marginTop="6dp"
+            android:background="#FFFFFF"
+            android:fontFamily="monospace"
+            android:gravity="top|start"
+            android:hint="Describe the issue (e.g. 50+ eucalyptus planted 5m from spring, water dry-up observed)..."
+            android:inputType="textMultiLine"
+            android:padding="12dp"
+            android:textColor="#1A1C1E"
+            android:textColorHint="#757575"
+            android:textSize="14sp" />
+
+        <!-- Broadcast Button -->
+        <Button
+            android:id="@+id/broadcastAlertButton"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="24dp"
+            android:backgroundTint="#C62828"
+            android:fontFamily="sans-serif-medium"
+            android:text="📢 Broadcast Alert (WhatsApp / SMS / Share)"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/backToHubButton"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="24dp"
+            android:backgroundTint="#264D3F"
+            android:fontFamily="sans-serif"
+            android:text="← Back to Action Hub"
+            android:textAllCaps="false"
+            android:textColor="#A5D6A7"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+</ScrollView>
